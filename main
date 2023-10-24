@@ -2,6 +2,8 @@ package com.example.projetodevapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputFilter
+import android.widget.EditText
 import com.example.projetodevapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +19,22 @@ class MainActivity : AppCompatActivity() {
             val dolares = binding.editDolar.text.toString().toDouble()
             val real = String.format("%.2f", dolares * 5.04)
 
-            binding.textDolar.text = " ${real} R$"
+            binding.textResult.text = " ${real} R$"
         }
+
+        binding.buttonEuro.setOnClickListener{
+            val dolares = binding.editDolar.text.toString().toDouble()
+            val euro = String.format("%.2f", dolares * 0.94)
+
+            binding.textResult.text = "${euro} €"
+        }
+
+        binding.buttonPeso.setOnClickListener{
+            val dolares = binding.editDolar.text.toString().toDouble()
+            val peso = String.format("%.2f", dolares * 350.03)
+
+            binding.textResult.text = "${peso} $(ARS)"
+        }
+
     }
 }
