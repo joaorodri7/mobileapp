@@ -1,0 +1,23 @@
+package com.example.projetodevapp
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.example.projetodevapp.databinding.ActivityMainBinding
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.buttonConverter.setOnClickListener{
+            val dolares = binding.editDolar.text.toString().toDouble()
+            val real = String.format("%.2f", dolares * 5.04)
+
+            binding.textDolar.text = " ${real} R$"
+        }
+    }
+}
